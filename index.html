@@ -1,15 +1,140 @@
 <!DOCTYPE html>
-<head></head>
-<body>
-<h1>天津业余无线电</h1>
-</body>
-<body>
-<h2> style="color:red"业余无线电简介</h2>
-</body>
-<body>
-      业余无线电是供业余无线电爱好者进行自我训练、相互通信和技术研究的无线电通信业务。喜爱业余无线电的人也被称为业余无线电爱好者或HAM，在美国政府正
-  式注册的HAM大约有一百四十万人，在中国大约有二十多万人，在全世界总共大约六百万人。他们必须学习相关知识并通过所在国家的测试才能领取到业余无线
-  电执照，同时领取政府分配的业余无线电呼号。业余无线电呼号是一个业余无线电爱好者的标识，此标识在全世界是不重复的，这也是业余无线电爱好者的荣誉
-  所在。
-</body>
-</html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的本地网页</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- Tailwind 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981',
+                        accent: '#8B5CF6',
+                        neutral: '#1F2937',
+                        'neutral-light': '#F3F4F6',
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- 自定义工具类 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .transition-custom {
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+        }
+    </style>
+    
+    <!-- 字体引入 -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-inter bg-gray-50 text-neutral">
+    <!-- 导航栏 -->
+    <header id="navbar" class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-2">
+                <i class="fa fa-rocket text-primary text-2xl"></i>
+                <span class="text-xl font-bold text-primary">本地网页</span>
+            </a>
+            
+            <!-- 桌面导航 -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="font-medium hover:text-primary transition-colors">首页</a>
+                <a href="#features" class="font-medium hover:text-primary transition-colors">特性</a>
+                <a href="#gallery" class="font-medium hover:text-primary transition-colors">图库</a>
+                <a href="#contact" class="font-medium hover:text-primary transition-colors">联系我们</a>
+                <button class="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-lg shadow-md hover:shadow-lg transition-all">
+                    登录
+                </button>
+            </nav>
+            
+            <!-- 移动端菜单按钮 -->
+            <button id="menu-toggle" class="md:hidden text-neutral hover:text-primary transition-colors">
+                <i class="fa fa-bars text-xl"></i>
+            </button>
+        </div>
+        
+        <!-- 移动端导航菜单 -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+                <a href="#home" class="font-medium hover:text-primary transition-colors py-2">首页</a>
+                <a href="#features" class="font-medium hover:text-primary transition-colors py-2">特性</a>
+                <a href="#gallery" class="font-medium hover:text-primary transition-colors py-2">图库</a>
+                <a href="#contact" class="font-medium hover:text-primary transition-colors py-2">联系我们</a>
+                <button class="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-lg shadow-md hover:shadow-lg transition-all">
+                    登录
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section id="home" class="pt-28 pb-20 md:pt-40 md:pb-32 bg-gradient-to-br from-primary/5 to-secondary/5">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold leading-tight text-neutral mb-6">
+                    打造666的<span class="text-primary">本地网页</span>。
+                </h1>
+                <p class="text-gray-600 text-lg mb-8 max-w-xl">
+                    这使用HTML、CSS和JavaScript构建的现代化本地网页模板，包含了响应式设计、动画效果和交互功能。
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <button class="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all text-lg font-medium">
+                        开始探索
+                    </button>
+                    <button class="bg-white hover:bg-gray-50 text-neutral border border-gray-200 px-8 py-3 rounded-lg shadow-md hover:shadow-lg transition-all text-lg font-medium flex items-center justify-center">
+                        <i class="fa fa-play-circle mr-2"></i> 观看演示
+                    </button>
+                </div>
+            </div>
+            <div class="md:w-1/2 relative">
+                <div class="relative z-10 rounded-xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-all duration-500">
+                    <img src="https://picsum.photos/800/600?random=1" alt="现代化网页设计" class="w-full h-auto">
+                </div>
+                <div class="absolute -bottom-6 -right-6 w-64 h-64 bg-accent/20 rounded-full blur-3xl -z-10"></div>
+                <div class="absolute -top-6 -left-6 w-64 h-64 bg-primary/20 rounded-full blur-3xl -z-10"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特性区域 -->
+    <section id="features" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-neutral mb-4">强大特性</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">探索我精心设计的网站，本地网页提供卓越的用户体验和功能</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 特性卡片 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-all border border-gray-100 group">
+                    <div class="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-all">
+                        <i class="fa fa-desktop text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">响应式设计</h3>
+                    <p class="text-gray-600">完美适配从手机到桌面的所有设备尺寸。</p>
+                </div>
+                
+                <!-- 特性卡片 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition-all border border-gray-100 group">
+                    <div class="w-16 h-16 bg-secondary/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-secondary/20 transition-all">
+      
